@@ -17,8 +17,10 @@ specieslist <- fishbase %>% select(Genus, Species) %>%
   mutate(genus_species = as.factor(genus_species))
 
 
-test <- specieslist %>% 
-  slice(1:10000)
-
 species_info <- species(species_list = specieslist$genus_species)
-write.csv(species_info, file = "species_info.csv")          
+
+write.csv(species_info, file = "species_info.csv") 
+
+
+test <- load_taxa(server = "FishBase")
+
